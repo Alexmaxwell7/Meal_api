@@ -15,16 +15,10 @@ const { Header, Content, Footer } = Layout;
 const Orderpurchase=()=>{
     const location = useLocation();
     const navigate = useNavigate();
+    const [state, changeState] = useState(false);
+    const [update,setUpdate]=useState(1);
     const purchase_data= location.state.order_data;
     const user=JSON.parse(localStorage.getItem('userdata'));
-    console.log("purchase",purchase_data);
-    console.log("user",user);
-    //refresh remove token and state
-    const refresh=()=>{
-        navigate('/',{state:null}, { replace: true });
-        localStorage.clear();
-    }
-
     return(
         <Layout className="layout">
       <Content style={{ padding: "0 50px" }}>
